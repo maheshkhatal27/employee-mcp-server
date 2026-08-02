@@ -1,0 +1,14 @@
+{
+  "name": "employee-mcp",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "dotenv": "^17.2.1",
+    "mysql2": "^3.14.5",
+    "zod": "^4.0.17"
+  }
+}

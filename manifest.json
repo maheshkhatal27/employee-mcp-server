@@ -1,0 +1,59 @@
+{
+  "manifest_version": "0.3",
+  "name": "employee-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server exposing employee management tools backed by MySQL",
+  "author": {
+    "name": "Mahesh"
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/index.js"],
+      "env": {
+        "DB_HOST": "${user_config.db_host}",
+        "DB_USER": "${user_config.db_user}",
+        "DB_PASSWORD": "${user_config.db_password}",
+        "DB_NAME": "${user_config.db_name}"
+      }
+    }
+  },
+  "user_config": {
+    "db_host": {
+      "type": "string",
+      "title": "Database Host",
+          "description": "Hostname of your MySQL server",
+      "default": "localhost",
+      "required": true
+    },
+    "db_user": {
+      "type": "string",
+      "title": "Database User",
+          "description": "MySQL username",
+      "default": "root",
+      "required": true
+    },
+    "db_password": {
+      "type": "string",
+      "title": "Database Password",
+          "description": "MySQL password",
+      "sensitive": true,
+      "required": true
+    },
+    "db_name": {
+      "type": "string",
+      "title": "Database Name",
+          "description": "Name of the database to connect to",
+      "default": "company",
+      "required": true
+    }
+  },
+  "compatibility": {
+    "platforms": ["win32"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}
